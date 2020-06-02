@@ -16,6 +16,7 @@ public class ScheduTask {
 
     @Scheduled(cron = "0 0 0 * * ?")
     private void testSca(){
+//        System.out.println(111);
         orderService.setremaindercanceltimesthree();
     }
 }
