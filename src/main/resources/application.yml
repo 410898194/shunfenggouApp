@@ -1,0 +1,43 @@
+spring:
+  datasource:
+      type: com.zaxxer.hikari.HikariDataSource
+      driverClassName: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://47.106.245.83:3306/shunfenggou?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+      username: root
+      password: 19990809
+
+      # `Hikari 连接池配置`
+      # `最小空闲连接数量`
+      hikari:
+        minimum-idle: 5
+        # `空闲连接存活最大时间，默认600000（10分钟）`
+        idle-timeout: 600000
+        # `连接池最大连接数，默认是10
+        maximum-pool-size: 10
+        # `此属性控制从池返回的连接的默认自动提交行为,默认值：true`
+        auto-commit: true
+        # `连接池名称`
+        pool-name: MyHikariCP
+        # `此属性控制池中连接的最长生命周期，值0表示无限生命周期，默认1800000即30分钟
+        max-lifetime: 1800000
+        # `数据库连接超时时间,默认30秒，即30000`
+        connection-timeout: 30000
+        connection-test-query: SELECT 1
+mybatis:
+    type-aliases-package: com.shunfeng.gou.fanlihuang.entity
+    mapper-locations: classpath:mappers/*Mapper.xml
+
+logging:
+  file: ../logs/spring-boot-hello.log
+  level.org.springframework.web: trace
+
+server:
+  # 端口号
+  port: 8443
+  ssl:
+    #生成的证书名字
+    key-store: file:D:\我的文档\Desktop\Myproject\SpringbootProject\fanlihuang\src\main\resources\3953805_shunfenggou.xyz.pfx
+    #秘钥库密码
+    key-store-password: 1voAQeMJ
+    enabled: true
+    key-store-type: PKCS12
